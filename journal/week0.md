@@ -133,31 +133,35 @@ In simple terms when you host your application on a cloud platform and the job o
 AWS IAM stands for Amazon Web Services Identity and Access Management, which is a service provided by AWS for managing users, groups, and permissions within an AWS account. Some short answers related to AWS IAM are:
 
 1. **What is AWS IAM?**
-
 AWS IAM is a service provided by AWS for managing access to AWS resources.
-2. **What are the benefits of using AWS IAM?**
 
+2. **What are the benefits of using AWS IAM?**
 Using AWS IAM allows you to manage access to AWS resources, enforce security policies, and audit access to resources.
+
 ![](img/week-0/week%200%20(7).png)
 
 3. **What are IAM users?**
 
 IAM users are entities within an AWS account that represent people, applications, or services that interact with AWS resources.
+
 ![](img/week-0/week%200%20(7).png)
 
 4. **What are IAM groups?**
 
 IAM groups are collections of IAM users that share the same permissions to access AWS resources.
+
 ![](img/week-0/week0(14).png)
 
 5. **What are IAM roles?**
 
 IAM roles are a way to grant temporary permissions to an entity, such as an AWS service or an IAM user from another AWS account.
+
 ![](img/week-0/week%200%20(8).png)
 
 6. **What are IAM policies?**
 
 IAM policies are documents that define permissions for IAM users, groups, and roles. Policies are written in JSON and specify what actions are allowed or denied for specific AWS resources.
+
 ![](img/week-0/week0(13).png)
 
 ## AWS Organization SCP
