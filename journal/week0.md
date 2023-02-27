@@ -33,7 +33,10 @@ Reg
 The Iron Triangle is a project management concept that refers to the three constraints that are commonly considered to be the most important in determining the success or failure of a project. The three constraints are:
 
 1. Time: Refers to the amount of time available to complete a project. The project needs to be completed within a specific timeframe, and any delays can have a significant impact on the project's success.
+
+
 2. Cost: Refers to the budget available to complete a project. The project needs to be completed within the allocated budget, and any cost overruns can have a significant impact on the project's success.
+
 3. Scope: Refers to the goals, deliverables, and features of a project. The project needs to meet the agreed-upon scope, and any changes or deviations from the scope can have a significant impact on the project's success.
 
 # Architecting Your Cloud
@@ -130,24 +133,30 @@ In simple terms when you host your application on a cloud platform and the job o
 AWS IAM stands for Amazon Web Services Identity and Access Management, which is a service provided by AWS for managing users, groups, and permissions within an AWS account. Some short answers related to AWS IAM are:
 
 1. **What is AWS IAM?**
+
 AWS IAM is a service provided by AWS for managing access to AWS resources.
 2. **What are the benefits of using AWS IAM?**
+
 Using AWS IAM allows you to manage access to AWS resources, enforce security policies, and audit access to resources.
 ![](img/week-0/week%200%20(7).png)
 
 3. **What are IAM users?**
+
 IAM users are entities within an AWS account that represent people, applications, or services that interact with AWS resources.
 ![](img/week-0/week%200%20(7).png)
 
 4. **What are IAM groups?**
+
 IAM groups are collections of IAM users that share the same permissions to access AWS resources.
 ![](img/week-0/week0(14).png)
 
 5. **What are IAM roles?**
+
 IAM roles are a way to grant temporary permissions to an entity, such as an AWS service or an IAM user from another AWS account.
 ![](img/week-0/week%200%20(8).png)
 
 6. **What are IAM policies?**
+
 IAM policies are documents that define permissions for IAM users, groups, and roles. Policies are written in JSON and specify what actions are allowed or denied for specific AWS resources.
 ![](img/week-0/week0(13).png)
 
@@ -156,15 +165,19 @@ IAM policies are documents that define permissions for IAM users, groups, and ro
 AWS Organization SCPs are policies that allow you to centrally manage permissions for multiple AWS accounts in an AWS organization.
 
 **Q. How do AWS Organization SCPs work?**
+
 AWS Organization SCPs are applied at the root level of an AWS organization and can be used to control what actions are allowed or denied for accounts or groups of accounts within the organization.
 
 **Q. What can be controlled using AWS Organization SCPs?**
+
 Using AWS Organization SCPs, you can control access to specific AWS services, API actions, and resources. You can also set conditions on when actions are allowed or denied, such as by IP address or time of day.
 
 **Q. How are AWS Organization SCPs different from IAM policies?**
+
 While IAM policies control access to resources within a single AWS account, AWS Organization SCPs allow you to control access across multiple accounts within an AWS organization.
 
 **Q. How do you create and manage AWS Organization SCPs?**
+
 AWS Organization SCPs are created and managed in the AWS Organizations console or using the AWS Organizations API. You can apply SCPs to individual accounts or groups of accounts within an organization, and you can use the AWS Organizations policy simulator to test your policies before applying them.
 
 ### Use CloudShell, Generate AWS Credentials, Installed AWS CLI
