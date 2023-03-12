@@ -76,7 +76,7 @@ Let's login
 
 ![](img/week-3/week3%20(11).png)
 
-Yes!!! it worked perfectly
+Yes!!! it worked perfectly.
 
 Now let's go to the AWS Cognito page and how it stores the data.
 
