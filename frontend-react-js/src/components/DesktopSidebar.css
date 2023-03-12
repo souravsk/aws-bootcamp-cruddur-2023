@@ -12,10 +12,10 @@ section footer {
 
 section footer a {
   text-decoration: none;
-  color: rgba(255,255,255,0.2);
+  color: rgba(113, 18, 156, 0.5);
   font-size: 14px;
 }
 
 section footer a:hover {
-  color: rgba(255,255,255,1);
+  color: rgb(102, 11, 138);
 }

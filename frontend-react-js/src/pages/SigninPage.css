@@ -47,7 +47,7 @@ article.signin-article input[type='password'] {
   resize: none;
   width: 100%;
   padding: 16px;
-  border: solid 1px #555555;
+  border: solid 1px var(--field-border);
   background: #1f1f1f;
   color: #fff;
 }
