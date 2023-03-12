@@ -119,3 +119,11 @@ IT worked.
 # UI Changes
 
 ![](img/week-3/week3%20(20).png)
+
+# Amazon RDS PostGres
+
+PostgreSQL has become the preferred open-source relational database for many enterprise developers and start-ups, powering leading business and mobile applications. Amazon RDS makes it easy to set up, operate, and scale PostgreSQL deployments in the cloud. With Amazon RDS, you can deploy scalable PostgreSQL deployments in minutes with cost-efficient and resizable hardware capacity. Amazon RDS manages complex and time-consuming administrative tasks such as PostgreSQL software installation and upgrades; storage management; replication for high availability and read throughput; and backups for disaster recovery.
+
+![](img/week-3/week3%20(21).png)
+
+![](img/week-3/week3%20(22).png)
