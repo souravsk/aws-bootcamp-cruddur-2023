@@ -72,5 +72,5 @@ networks:
     name: cruddur
     
 volumes:
-  #db:
-   # driver: local
+  db:
+    driver: local
