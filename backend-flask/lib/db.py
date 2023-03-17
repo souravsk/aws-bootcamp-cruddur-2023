@@ -13,7 +13,7 @@ def query_wrap_object(template):
   return sql
 
 def query_wrap_array(template):
-  sql = fs"""
+  sql = f"""
   (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
   {template}
   ) array_row);
