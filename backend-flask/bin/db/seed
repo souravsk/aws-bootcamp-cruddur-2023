@@ -8,7 +8,7 @@ printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 seed_path="$(realpath .)/db/seed.sql"
 echo $seed_path
 
-if ["$1" = "prod"]; then
+if ["$1" = "prod" ]; then
     echo "Using Production"
     CON_URL=$PROD_CONNECTION_URL
 else
