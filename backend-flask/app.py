@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 import os
 import sys
 
+from services.users_short import *
 from services.home_activities import *
 from services.user_activities import *
 from services.create_activity import *
@@ -168,8 +169,8 @@ def data_messages(message_group_uuid):
 @app.route("/api/messages", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_create_message():
+  message_group_uuid   = request.json.get('message_group_uuid',None)
   user_receiver_handle = request.json.get('handle',None)
-  user_receiver_handle = request.json['user_receiver_handle']
   message = request.json['message']
   access_token = extract_access_token(request.headers)
   try:
