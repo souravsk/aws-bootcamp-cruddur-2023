@@ -1,5 +1,4 @@
 # Week 4 — Postgres and RDS
-# Week 4 - Relational Database
 
 # What is Relational Database Service (RDS)
 
@@ -127,3 +126,13 @@ But after a long waiting for help, I get the help and I solve the issue.
 We have to write so much code in the section so the when user writes something that needs to be stored in the table name `activities`
 
 But I’m stuck right now on this one error.
+## Worked
+
+it is working now the problem was on the user name. 
+
+Create a crud as  you can see.
+![](img/week-4/week4%20(29).png)
+
+Now it is also on the database
+
+![](img/week-4/week4%20(30).png)
