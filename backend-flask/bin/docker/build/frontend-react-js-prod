@@ -1,0 +1,11 @@
+#! /usr/bin/bash
+
+docker build \
+--build-arg REACT_APP_BACKEND_URL="https://4567-$GITPOD_WORKSPACE_ID.$GITPOD_WORKSPACE_CLUSTER_HOST" \
+--build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_USER_POOLS_ID="ap-south-1_s8C5r5O7D" \
+--build-arg REACT_APP_CLIENT_ID="4f7vvk3csghvqlv1g3f6vmlt8h" \
+-t frontend-react-js \
+-f Dockerfile.prod \
+.
