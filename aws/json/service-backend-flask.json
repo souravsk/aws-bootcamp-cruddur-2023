@@ -18,7 +18,9 @@
           "sg-0b828d19d3c7a2997"
         ],
         "subnets": [
-          c
+          "subnet-089578e4ac5b5549d",
+          "subnet-00cb026ccbf828dc1",
+          "subnet-01f5c799ad38497c2"
         ]
       }
     },
