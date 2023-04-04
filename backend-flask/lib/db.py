@@ -79,10 +79,9 @@ class Db:
         cur.execute(wrapped_sql,params)
         json = cur.fetchone()
         if json == None:
-          "{}"
+          return "{}"
         else:
           return json[0]
-
   def query_value(self,sql,params={}):
     self.print_sql('value',sql,params)
     with self.pool.connection() as conn:
@@ -90,7 +89,6 @@ class Db:
         cur.execute(sql,params)
         json = cur.fetchone()
         return json[0]
-        
   def query_wrap_object(self,template):
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
