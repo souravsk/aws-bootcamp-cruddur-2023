@@ -1,4 +1,4 @@
-const {getClient, getOriginalImage, processImage, uploadProcessedImage} = require('./s3-image-processing.js')
+const {getClient, getOriginalImage, processImage, uploadProcessedImage} = require('.s3-image-processing.js')
 
 async function main(){
   client = getClient()
