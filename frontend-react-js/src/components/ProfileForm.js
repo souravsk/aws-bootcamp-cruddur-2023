@@ -1,7 +1,7 @@
 import './ProfileForm.css';
 import React from "react";
 import process from 'process';
-import {getAccessToken} from '../lib/CheckAuth';
+import {getAccessToken} from 'lib/CheckAuth';
 
 export default function ProfileForm(props) {
   const [bio, setBio] = React.useState('');
@@ -52,7 +52,6 @@ export default function ProfileForm(props) {
     const fileparts = filename.split('.')
     const extension = fileparts[fileparts.length-1]
     const presignedurl = await s3uploadkey(extension)
-
     try {
       console.log('s3upload')
       const res = await fetch(presignedurl, {
@@ -62,6 +61,7 @@ export default function ProfileForm(props) {
           'Content-Type': type
       }})
       if (res.status === 200) {
+        
       } else {
         console.log(res)
       }
@@ -69,7 +69,6 @@ export default function ProfileForm(props) {
       console.log(err);
     }
   }
-
 
   const onsubmit = async (event) => {
     event.preventDefault();
@@ -130,7 +129,9 @@ export default function ProfileForm(props) {
             </div>
           </div>
           <div className="popup_content">
+            
           <input type="file" name="avatarupload" onChange={s3upload} />
+
             <div className="field display_name">
               <label>Display Name</label>
               <input
