@@ -196,9 +196,12 @@ In this context, "other origins" means the URL being accessed differs from the l
 
 However, there are legitimate scenarios where cross-origin access is desirable or even necessary. For example, if you're running a React SPA that makes calls to an API backend running on a different domain. [Web fonts also rely on CORS to work](https://www.w3.org/TR/css-fonts-3/#font-fetching-requirements).
 
-This error just keeps coming again and again no matter what we try so after so much or try we are finally able to solve the Cors error for now because I know this will come again.
 
 ![16](img/week-8/week8%20(16).png)
+
+After so many error it worked finaly
+
+![16](img/week-8/Untitled.png)
 
 # Summary
 
