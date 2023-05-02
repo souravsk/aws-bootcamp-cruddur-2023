@@ -4,7 +4,7 @@ from boto3.dynamodb.conditions import Key, Attr
 
 dynamodb = boto3.resource(
  'dynamodb',
- region_name='ca-central-1',
+ region_name='ap-south-1',
  endpoint_url="http://dynamodb.ap-south-1.amazonaws.com"
 )
 
