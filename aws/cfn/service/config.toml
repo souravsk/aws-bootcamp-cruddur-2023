@@ -1,4 +1,4 @@
 [deploy]
-bucket = 'cfn-artifacts'
+bucket = 'cfn-artifacts-cruddur-fun'
 region = 'ap-south-1'
 stack_name = 'CrdSrvBackendFlask'
