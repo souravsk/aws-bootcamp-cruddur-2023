@@ -18,6 +18,6 @@ aws cloudformation deploy \
   --region $REGION \
   --template-file "$CFN_PATH" \
   --no-execute-changeset \
-  --tags group=cruddur-cluster \
+  --tags group=cruddur-db \
   --parameter-overrides $PARAMETERS MasterUserPassword=$DB_PASSWORD \
   --capabilities CAPABILITY_NAMED_IAM
