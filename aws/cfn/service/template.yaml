@@ -4,7 +4,6 @@ Description: |
   Fargate Service
   Execution Role
   Task Role
-
 Parameters:
   NetworkingStack:
     Type: String
@@ -85,11 +84,11 @@ Resources:
       HealthCheckGracePeriodSeconds: 0
       LaunchType: FARGATE
       LoadBalancers:
-        - TargetGroupArn:
+      - TargetGroupArn:
             Fn::ImportValue:
               !Sub "${ClusterStack}BackendTGArn"
-          ContainerName: 'backend-flask'
-          ContainerPort: !Ref ContainerPort
+        ContainerName: 'backend-flask'
+        ContainerPort: !Ref ContainerPort
       NetworkConfiguration:
         AwsvpcConfiguration:
           AssignPublicIp: ENABLED
