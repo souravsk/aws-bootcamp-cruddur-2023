@@ -8,14 +8,13 @@ Description: |
     - internet facing
     - certificate attached from Amazon Certification Manager (ACM)
   - ALB Security Group
-  - HTTPS Listerner
+  - HTTPS Listener
     - send naked domain to frontend Target Group
     - send api. subdomain to backend Target Group
-  - HTTP Listerner
-    - redirects to HTTPS Listerner
+  - HTTP Listener
+    - redirects to HTTPS Listener
   - Backend Target Group
   - Frontend Target Group
-
 Parameters:
   NetworkingStack:
     Type: String
@@ -60,7 +59,7 @@ Parameters:
     Default: "/api/health-check"
   BackendHealthCheckPort:
     Type: String
-    Default: 80
+    Default: 4567
   BackendHealthCheckProtocol:
     Type: String
     Default: HTTP
@@ -150,7 +149,7 @@ Resources:
               Path: "/#{path}"
               Query: "#{query}"
               StatusCode: "HTTP_301"
-  ApiALBListernerRule:
+  ApiALBListenerRule:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
     Type: AWS::ElasticLoadBalancingV2::ListenerRule
     Properties:
@@ -158,7 +157,7 @@ Resources:
         - Field: host-header
           HostHeaderConfig: 
             Values: 
-              - api.cruddur.com
+              - api.cruddur.fun
       Actions: 
         - Type: forward
           TargetGroupArn:  !Ref BackendTG
@@ -186,22 +185,20 @@ Resources:
           Description: INTERNET HTTP
   # We have to create this SG before the service so we can pass it to database SG
   ServiceSG:
-      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
+    # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
     Type: AWS::EC2::SecurityGroup
-    Properties: 
-      GroupDescription: Security for Fargate Services for cruddur
+    Properties:
       GroupName: !Sub "${AWS::StackName}ServSG"
-      VpcId: 
+      GroupDescription: Security for Fargate Services for Cruddur
+      VpcId:
         Fn::ImportValue:
           !Sub ${NetworkingStack}VpcId
       SecurityGroupIngress:
-      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule-1.html 
         - IpProtocol: tcp
           SourceSecurityGroupId: !GetAtt ALBSG.GroupId
           FromPort: !Ref BackendPort
           ToPort: !Ref BackendPort
           Description: ALB HTTP
-
   BackendTG:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
