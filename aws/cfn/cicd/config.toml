@@ -8,4 +8,4 @@ ServiceStack = 'CrdSrvBackendFlask'
 ClusterStack = 'CrdCluster'
 GitHubBranch = 'prod'
 GithubRepo = 'aws-bootcamp-cruddur-2023'
-ArtifactBucketName = ""
+ArtifactBucketName = "codepipeline-cruddur-artifactss"
