@@ -1,0 +1,9 @@
+version=0.1
+[default.build.parameters]
+region = "ap-south-1"
+
+[default.package.parameters]
+region = "ap-south-1"
+
+[default.deploy.parameters]
+region = "ap-south-1"
