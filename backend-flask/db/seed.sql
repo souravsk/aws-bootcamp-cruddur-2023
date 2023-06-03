@@ -5,11 +5,16 @@ VALUES
   ('Sonu','souravk326+sonu@gmail.com' , 'sonu' ,'MOCK'),
   ('Son Goku','songoku02010@gmail.com' , 'goku' ,'MOCK'),
   ('Londo Mollari','lmollari@centari.com' ,'londo' ,'MOCK');
-
+  
 INSERT INTO public.activities (user_uuid, message, expires_at)
 VALUES
   (
-    (SELECT uuid from public.users WHERE users.handle = 'sourav_sovu_' LIMIT 1),
+    (SELECT uuid from public.users WHERE users.handle = 'andrewbrown' LIMIT 1),
     'This was imported as seed data!',
     current_timestamp + interval '10 day'
-  )
+  ),
+  (
+    (SELECT uuid from public.users WHERE users.handle = 'altbrown' LIMIT 1),
+    'I am the other!',
+    current_timestamp + interval '10 day'
+  );
