@@ -7,7 +7,7 @@ import DesktopSidebar     from 'components/DesktopSidebar';
 import ActivityForm from 'components/ActivityForm';
 import ReplyForm from 'components/ReplyForm';
 import Replies from 'components/Replies';
-import ActivityShowItem from 'components/ActivityShowItem'
+import ActivityShowItem from 'components/ActivityShowItem';
 
 import {get} from 'lib/Requests';
 import {checkAuth} from 'lib/CheckAuth';
