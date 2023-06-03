@@ -10,7 +10,7 @@ from flask_cors import cross_origin
 from services.users_short import UsersShort
 from services.update_profile import UpdateProfile
 from services.user_activities import UserActivities
-from services.show_activity import ShowActivities
+from services.show_activity import ShowActivity
 
 ## helpers
 from lib.helpers import model_json
