@@ -7,6 +7,7 @@ from functools import wraps, partial
 from flask import request, g
 import os
 from flask import current_app as app
+from functools import wraps, partial
 
 class FlaskAWSCognitoError(Exception):
   pass
@@ -116,8 +117,6 @@ class CognitoJwtToken:
 
         self.claims = claims 
         return claims
-
-from functools import wraps, partial
 
 def jwt_required(f=None, on_error=None):
     if f is None:
