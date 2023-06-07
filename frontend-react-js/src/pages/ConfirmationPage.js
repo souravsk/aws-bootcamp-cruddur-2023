@@ -1,75 +1,71 @@
 import './ConfirmationPage.css';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { useSearchParams } from "react-router-dom";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
-
-// [TODO] Authenication
 import { Auth } from 'aws-amplify';
 
 export default function ConfirmationPage() {
-  const [email, setEmail] = React.useState('');
-  const [code, setCode] = React.useState('');
-  const [errors, setErrors] = React.useState('');
-  const [codeSent, setCodeSent] = React.useState(false);
-
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  const [errors, setErrors] = useState('');
+  const [codeSent, setCodeSent] = useState(false);
   const params = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const code_onchange = (event) => {
     setCode(event.target.value);
   }
+
   const email_onchange = (event) => {
     setEmail(event.target.value);
   }
 
-  const resend_code = async (event) => {
-    setErrors('')
-    try {
-      await Auth.resendSignUp(email);
-      console.log('code resent successfully');
-      setCodeSent(true)
-    } catch (err) {
-      // does not return a code
-      // does cognito always return english
-      // for this to be an okay match?
-      console.log(err)
-      if (err.message === 'Username cannot be empty'){
-        setErrors("You need to provide an email in order to send Resend Activiation Code")   
-      } else if (err.message === "Username/client id combination not found."){
-        setErrors("Email is invalid or cannot be found.")   
-      }
-    }
+  const resend_code = async () => {
+    console.log('resend_code');
   }
 
-  const onsubmit = async (event) => {
+  const onsubmit = (event) => {
     event.preventDefault();
     setErrors('')
-    try {
-      await Auth.confirmSignUp(email, code);
-      window.location.href = "/"
-    } catch (error) {
-      setErrors(error.message)
-    }
-    return false
+    Auth.confirmSignUp(email, code)
+      .then(() => {
+        window.location.href = "/signin"
+      })
+      .catch((error) => {
+        setErrors(error.message)
+      });
   }
-  
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (params.email) {
+      setEmail(params.email)
+    }
+  }, [params.email]);
+
+  useEffect(() => {
+    const paramemail = searchParams.get('email');
+    console.log(paramemail)
+    if (paramemail) {
+      setEmail(paramemail)
+    }
+  }, [searchParams]);
+
   let el_errors;
   if (errors){
     el_errors = <div className='errors'>{errors}</div>;
   }
 
-
-  let code_button;
-  if (codeSent){
-    code_button = <div className="sent-message">A new activation code has been sent to your email</div>
-  } else {
-    code_button = <button className="resend" onClick={resend_code}>Resend Activation Code</button>;
-  }
-
-  React.useEffect(()=>{
-    if (params.email) {
-      setEmail(params.email)
-    }
-  }, [])
+  const code_button = codeSent
+    ? <div className="sent-message">A new activation code has been sent to your email</div>
+    : <button className="resend" onClick={resend_code}>Resend Activation Code</button>;
 
   return (
     <article className="confirm-article">
@@ -77,10 +73,7 @@ export default function ConfirmationPage() {
         <Logo className='logo' />
       </div>
       <div className='recover-wrapper'>
-        <form
-          className='confirm_form'
-          onSubmit={onsubmit}
-        >
+        <form className='confirm_form' onSubmit={onsubmit}>
           <h2>Confirm your Email</h2>
           <div className='fields'>
             <div className='field text_field email'>
@@ -92,12 +85,12 @@ export default function ConfirmationPage() {
               />
             </div>
             <div className='field text_field code'>
-              <label>Confirmation Code</label>
-              <input
-                type="text"
-                value={code}
-                onChange={code_onchange} 
-              />
+             <label>Confirmation Code</label>
+             <input
+               type="text"
+               value={code}
+               onChange={code_onchange} 
+             />
             </div>
           </div>
           {el_errors}
