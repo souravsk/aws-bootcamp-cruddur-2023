@@ -1,6 +1,4 @@
 import { Auth } from 'aws-amplify';
-import { resolvePath } from 'react-router-dom';
-
 export async function getAccessToken(){
   Auth.currentSession()
   .then((cognito_user_session) => {
@@ -9,7 +7,6 @@ export async function getAccessToken(){
   })
   .catch((err) => console.log(err));
 }
-
 export async function checkAuth(setUser){
   Auth.currentAuthenticatedUser({
     // Optional, By default is false. 

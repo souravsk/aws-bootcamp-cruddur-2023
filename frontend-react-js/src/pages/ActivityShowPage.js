@@ -1,7 +1,7 @@
 import './ActivityShowPage.css';
 import React from "react";
+//import { trace } from '@opentelemetry/api';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import DesktopNavigation  from 'components/DesktopNavigation';
 import DesktopSidebar     from 'components/DesktopSidebar';
 import ActivityForm from 'components/ActivityForm';
@@ -20,9 +20,10 @@ export default function ActivityShowPage() {
   const [replyActivity, setReplyActivity] = React.useState({});
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
+  //const tracer = trace.getTracer();
   const params = useParams();
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 	const goBack = () => {
 		navigate(-1);
 	}
@@ -34,10 +35,28 @@ export default function ActivityShowPage() {
       success: function(data){
         setActivity(data.activity)
         setReplies(data.replies)
-      }
-    })
+    }})
   }
+  //React.useEffect(() => {
+  //  if (dataFetchedRef.current) return;
+  //  dataFetchedRef.current = true;
   
+ //   tracer.startActiveSpan('HomeFeedPage', (span) => {
+ //     tracer.startActiveSpan('load_data', (span) => {
+ //       span.setAttribute('endpoint', '/api/activities/home');
+ //       loadData();
+ //       span.end()
+ //     })
+//      tracer.startActiveSpan('check_auth', (span) => {
+ //       span.setAttribute('endpoint', '/api/auth');
+ //       checkAuth(setUser);
+  //      span.end()
+  //    })
+  //    span.end()
+  //  })
+ // }, [])
+  
+
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
@@ -52,10 +71,10 @@ export default function ActivityShowPage() {
     el_activity = (
       <ActivityShowItem 
         expanded={true}
-        setReplyActivity={setReplyActivity}
-        setPopped={setPoppedReply}
+        setReplyActivity={setReplyActivity} 
+        setPopped={setPoppedReply} 
         activity={activity} 
-      />
+    />
     )
   }
 
@@ -65,28 +84,28 @@ export default function ActivityShowPage() {
       <div className='content'>
         <ActivityForm  
           popped={popped}
-          setPopped={setPopped} 
+          setPopped={setPopped}
         />
         <ReplyForm 
           activity={replyActivity} 
-          popped={poppedReply} 
+          popped={poppedReply}
           setReplies={setReplies}
-          setPopped={setPoppedReply} 
+          setPopped={setPoppedReply}
         />
         <div className='activity_feed'>
           <div className='activity_feed_heading flex'>
-          <div className="back" onClick={goBack}>&larr;</div>	
+          <div className="back" onClick={goBack}>&larr;</div>
             <div className='title'>Crud</div>
-          </div>
+          </div> 
           {el_activity}
           <Replies
             setReplyActivity={setReplyActivity} 
             setPopped={setPoppedReply} 
             replies={replies} 
           />
+          </div>
         </div>
-      </div>
-      <DesktopSidebar user={user} />
+        <DesktopSidebar user={user} />
     </article>
   );
 }
