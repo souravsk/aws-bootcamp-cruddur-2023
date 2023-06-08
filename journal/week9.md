@@ -1,4 +1,4 @@
-# Week 9 — CI/CD with CodePipeline, CodeBuild and CodeDeplo
+# Week 9 — CI/CD with CodePipeline, CodeBuild and CodeDeploy
 
 # AWS CodePipeline
 
