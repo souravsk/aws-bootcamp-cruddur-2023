@@ -26,8 +26,8 @@ The `/journal` directory contains
 - [x] [Week 4 — Postgres and RDS](journal/week4.md)
 - [x] [Week 5 — NoSQL and Caching](journal/week5.md)
 - [x] [Week 6-7 — Serverless Containers](journal/week6-7.md)
-- [x] [Week 8 - Serverless Image Processing](journal/week8.md)
-- [x] [Week 9 - CI/CD with CodePipeline, CodeBuild and CodeDeploy](journal/week9.md)
-- [x] [Week 10-11 - AWS CloudFormation Or CFN (Iac)](journal/week10.md)
-- [x] [Week X - Final Week](journal/week11.md)
+- [x] [Week 8 — Serverless Image Processing](journal/week8.md)
+- [x] [Week 9 — CI/CD with CodePipeline, CodeBuild and CodeDeploy](journal/week9.md)
+- [x] [Week 10-11 — AWS CloudFormation Or CFN (Iac)](journal/week10.md)
+- [x] [Week X — Final Week](journal/week11.md)
 
