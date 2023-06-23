@@ -134,7 +134,7 @@ Then we will create a bash script that will migrate and rollback table of the bi
 
 ![21](img/week-8/week8%20(21).png)
 
-# Task - 5 (****Avatar Uploading****)
+# Task - 5 (Avatar Uploading)
 
 In this task, we will implement client-side javascript upload for S3.
 
@@ -184,7 +184,7 @@ Now we will check whether the URL is stored or not.
 
 Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact with resources from a different origin. This is useful because, thanks to the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) followed by `XMLHttpRequest` and `fetch` , JavaScript can only make calls to URLs that live on the same origin as the location where the script is running. For example, if a JavaScript app wishes to make an AJAX call to an API running on a different domain, it would be blocked from doing so thanks to the same-origin policy.
 
-## **Why Is It Needed?**
+## Why Is It Needed?
 
 Most of the time, a script running in the user's browser would only ever need to access resources on the same origin (think about API calls to the same backend that served the JavaScript code in the first place). So the fact that JavaScript can't normally access resources on other origins is a good thing for security.
 

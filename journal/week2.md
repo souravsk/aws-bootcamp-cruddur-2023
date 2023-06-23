@@ -183,7 +183,7 @@ it looks like we got some data let's look into the latest one.
 
 Yes!! it is our data log.
 
-# what is Instrument
+# what is Instrumenting
 
 Instrumenting your application involves sending trace data for incoming and outbound requests and other events within your application, along with metadata about each request. There are several different instrumentation options you can choose from or combine, based on your particular requirements:
 
